@@ -18,7 +18,6 @@ public class CSVReader {
         String[][] data = new String[nonEmptyRows.size()][];
 
         // 3. Split each line by comma and put it into the 2D array
-        String[] headers = nonEmptyRows.get(0);
         for (int i = 0; i < nonEmptyRows.size(); i++) {
             data[i] = nonEmptyRows.get(i).split(",");
             // data[i] = new CSVRecord(headers, nonEmptyRows.get(i));
