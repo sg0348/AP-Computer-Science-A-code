@@ -13,18 +13,13 @@ public class CSVReader {
         csvFileName = fileName;
     }
    // public CSVRecord[] readAll()
-    public String[][] readAll() {
+    public CSVRecord[] readAll() {
         List<String> nonEmptyRows = readRowsFromFile();
-        String[][] data = new String[nonEmptyRows.size()][];
-
+        CSVRecord[] data = new CSVRecord[nonEmptyRows.size()];
+        String[] headers= (nonEmptyRows.getFirst()).split(",");
         // 3. Split each line by comma and put it into the 2D array
         for (int i = 0; i < nonEmptyRows.size(); i++) {
-            data[i] = nonEmptyRows.get(i).split(",");
-            // data[i] = new CSVRecord(headers, nonEmptyRows.get(i));
-            // data[i].get("date")
-            if (i > 0 && data[i].length != data[0].length) {
-                throw new RuntimeException("Column mismatch at line " + (i + 1));
-            }
+            data[i] = new CSVRecord(headers, nonEmptyRows.get(i));
         }
         return data;
     }

@@ -5,15 +5,12 @@ public class CsvReaderMain {
     public static void main(String[] args)
     {
         CSVReader csvReader = new CSVReader("/Users/meera/test/grades.csv");
-        try{
-            String[][] array1 = csvReader.readAll();
-            for (String[] strings : array1)
-            {
-                for (String string : strings) System.out.print(string + " ");
-                System.out.println();
-            }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        try {
+            CSVRecord[] records = csvReader.readAll();
+            CSVRecord firstRecord = records[0];
+            System.out.println(firstRecord.get("Subject"));
+        } finally {
+
         }
 
     }

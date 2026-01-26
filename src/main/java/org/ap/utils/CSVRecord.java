@@ -8,6 +8,10 @@ public class CSVRecord
     {
         this.headers=headers;
         this.fields=row.split(",");
+        if ( headers.length != fields.length)
+        {
+        throw new RuntimeException("Column mismatch");
+        }
     }
 
     public String get(String headerName)
