@@ -2,15 +2,20 @@ package org.ap.utils;
 
 public class CSVRecord
 {
-    private String[] headers;
-    private String[] fields;
+    private final String[] headers;
+    private final String[] fields;
     public CSVRecord(String[] headers, String row)
     {
-        this.headers=headers;
-        this.fields=row.split(",");
+        this.headers = new String[headers.length];
+        for (int i = 0; i < headers.length; i++)
+            this.headers[i] = headers[i].trim();
+        String[] rawFields = row.split(",");
+        this.fields = new String[rawFields.length];
+        for (int i = 0; i < rawFields.length; i++)
+            this.fields[i] = rawFields[i].trim();
         if ( headers.length != fields.length)
         {
-        throw new RuntimeException("Column mismatch");
+        throw new RuntimeException("Column mismatch: "+this.headers.length+ " but got " + this.fields.length);
         }
     }
 
