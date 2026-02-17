@@ -7,6 +7,6 @@ public class CsvReaderMain {
         CSVRecord[] records = csvReader.readAll();
         CSVRecord firstRecord = records[0];
         System.out.println(firstRecord.get("Subject"));
-
+        System.out.println(records.length);
     }
 }

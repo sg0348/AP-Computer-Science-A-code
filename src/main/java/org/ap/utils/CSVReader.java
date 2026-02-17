@@ -15,7 +15,7 @@ public class CSVReader {
         if (nonEmptyRows.isEmpty()||nonEmptyRows.size()==1) {
             return new CSVRecord[0];
         }
-        CSVRecord[] data = new CSVRecord[nonEmptyRows.size()];
+        CSVRecord[] data = new CSVRecord[nonEmptyRows.size()-1];
         String[] headers= (nonEmptyRows.getFirst()).split(",");
         for (int i = 0; i < headers.length; i++) {
             headers[i] = headers[i].trim();}

@@ -6,7 +6,7 @@ public class GradeKey {
     public GradeKey(CSVRecord csvrecord)
     {
         this.category = csvrecord.get("category");
-        String weight = csvrecord.get("weightage");
+        String weight = csvrecord.get("weightage").trim();
         this.weightage = Double.parseDouble(weight);
     }
 
