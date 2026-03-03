@@ -9,8 +9,9 @@ public class GradesMain {
         }
         GradeFileParser parse = new GradeFileParser("/Users/meera/test/calculus_grades.csv");
         Grade[] grades = parse.parseFile();
-        for (Grade g : grades) {
-            System.out.println("Date: "+g.getDate()+" Category: " + g.getCategory() +" Assignment: "+ g.getAssignment()+ " Score: " + g.getPercentage() + "%");
-        }
+        for (Grade g : grades)
+            System.out.println("Date: " + g.getDate() + " Category: " + g.getCategory() + " Assignment: " + g.getAssignment() + " Score: " + g.getPercentage() + "%");
+        double finalGrade = GradeCalculator.calculate(gradeKeys, grades);
+        System.out.print(finalGrade);
     }
 }
